@@ -1,7 +1,7 @@
 html, body {
-    background-color: #fff;
+    background-color: #FAFAFA;
     color: #636b6f;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 200;
     height: 100vh;
     margin: 0;
@@ -47,4 +47,8 @@ html, body {
 
 .m-b-md {
     margin-bottom: 30px;
+}
+
+a.navbar-brand {
+    color: #aa2e25 !important;
 }

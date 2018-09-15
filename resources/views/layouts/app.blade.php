@@ -19,8 +19,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ url('css/lib/bootstrap.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
@@ -55,13 +55,11 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                {{ auth()->user()->name }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                <a class="dropdown-item" href="#" onclick="logout()">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -80,6 +78,11 @@
     <main class="py-4">
         @yield('content')
     </main>
+    <script>
+        function logout() {
+            document.getElementById('logout-form').submit();
+        }
+    </script>
 </div>
 </body>
 </html>
