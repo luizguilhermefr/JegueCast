@@ -28,7 +28,7 @@ html, body {
 }
 
 .content {
-    text-align: center;
+    padding: 2%;
 }
 
 .title {
@@ -47,6 +47,10 @@ html, body {
 
 .m-b-md {
     margin-bottom: 30px;
+}
+
+.navbar {
+    background-color: white;
 }
 
 a.navbar-brand {

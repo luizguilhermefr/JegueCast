@@ -21,6 +21,14 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
+     * @return string
+     */
+    public function username()
+    {
+        return 'username';
+    }
+
+    /**
      * Where to redirect users after login.
      *
      * @var string

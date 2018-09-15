@@ -24,7 +24,7 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <nav class="navbar navbar-expand-md navbar-light navbar-bg">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name') }}
@@ -59,6 +59,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('videos.create') }}">
+                                    {{ __('Upload') }}
+                                </a>
                                 <a class="dropdown-item" href="#" onclick="logout()">
                                     {{ __('Logout') }}
                                 </a>
@@ -75,7 +78,7 @@
         </div>
     </nav>
 
-    <main class="py-4">
+    <main class="col-md-12 content">
         @yield('content')
     </main>
     <script>

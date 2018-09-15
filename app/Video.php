@@ -2,14 +2,11 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Webpatser\Uuid\Uuid;
 
-class User extends Authenticatable
+class Video extends Model
 {
-    use Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -17,10 +14,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'uuid',
-        'username',
         'name',
-        'email',
-        'password',
+        'description',
+        'file_location',
+        'subtitles_location',
+        'parental_control',
     ];
 
     /**
@@ -28,10 +26,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    protected $hidden = [];
 
     /**
      * The primary key for the model.
