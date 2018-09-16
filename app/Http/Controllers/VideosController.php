@@ -40,7 +40,21 @@ class VideosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validData = $request->validate([
+            'title' => 'string|required|max:255',
+            'year' => 'integer|nullable|min:0|max:'.date('Y'),
+            'file' => 'file|required|mimetypes:video/*',
+            'subtitles' => 'file|nullable|mimetypes:text/*',
+            'description' => 'string|nullable|max:255',
+            'parental_control' => 'accepted|nullable',
+            'private' => 'accepted|nullable',
+        ]);
+
+        Video::create($validData);
+
+        return redirect()->route('/')->with([
+            'success_upload' => true,
+        ]);
     }
 
     /**

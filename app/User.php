@@ -66,4 +66,12 @@ class User extends Authenticatable
             $model->uuid = (string) Uuid::generate(4);
         });
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function videos()
+    {
+        return $this->hasMany(Video::class, 'user_uuid');
+    }
 }

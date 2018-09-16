@@ -10,8 +10,8 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ url ('js/lib/jquery.min.js') }}" defer></script>
-    <script src="{{ url ('js/lib/bootstrap.min.js') }}" defer></script>
+    <script src="{{ url ('js/lib/jquery.min.js') }}"></script>
+    <script src="{{ url ('js/lib/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -86,6 +86,7 @@
             document.getElementById('logout-form').submit();
         }
     </script>
+    @yield('script')
 </div>
 </body>
 </html>

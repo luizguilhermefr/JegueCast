@@ -19,6 +19,8 @@ class Video extends Model
         'file_location',
         'subtitles_location',
         'parental_control',
+        'private',
+        'year',
     ];
 
     /**
@@ -60,5 +62,13 @@ class Video extends Model
         self::creating(function ($model) {
             $model->uuid = (string) Uuid::generate(4);
         });
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_uuid');
     }
 }
