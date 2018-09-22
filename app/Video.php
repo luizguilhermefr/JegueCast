@@ -14,7 +14,7 @@ class Video extends Model
      */
     protected $fillable = [
         'uuid',
-        'name',
+        'title',
         'description',
         'file_location',
         'subtitles_location',

@@ -2,14 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Video;
+use Closure;
 use Illuminate\Http\Request;
 
 class VideosController extends Controller
 {
+    /**
+     * @var User
+     */
+    private $user;
+
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(function (Request $request, Closure $next) {
+            $this->user = auth()->user();
+
+            return $next($request);
+        });
     }
 
     /**
@@ -42,17 +54,23 @@ class VideosController extends Controller
     {
         $validData = $request->validate([
             'title' => 'string|required|max:255',
-            'year' => 'integer|nullable|min:0|max:'.date('Y'),
-            'file' => 'file|required|mimetypes:video/*',
-            'subtitles' => 'file|nullable|mimetypes:text/*',
+            'year' => 'integer|nullable|min:0|max:' . date('Y'),
+            'file' => 'file|required|mimes:mp4,avi',
+            'subtitles' => 'file|nullable|mimes:txt,srt',
             'description' => 'string|nullable|max:255',
-            'parental_control' => 'accepted|nullable',
-            'private' => 'accepted|nullable',
+            'parental_control' => 'nullable|boolean',
+            'private' => 'nullable|boolean',
         ]);
 
-        Video::create($validData);
+        $fileLocation = str_random(20);
 
-        return redirect()->route('/')->with([
+        $videoData = array_merge($validData, [
+            'file_location' => $fileLocation,
+        ]);
+
+        $this->user->videos()->create($videoData);
+
+        return redirect()->route('home')->with([
             'success_upload' => true,
         ]);
     }

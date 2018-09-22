@@ -56,7 +56,7 @@
                         name="file"
                         id="file"
                         value="{{ old('file') }}"
-                        accept="video/*"
+                        accept=".mp4,.avi"
                         required
                     >
                     @if ($errors->has('file'))
@@ -96,9 +96,7 @@
                         rows="3"
                         placeholder="{{ __('Description') }}"
                         required
-                    >
-                        {{ old('description') }}
-                    </textarea>
+                    >{{ old('description') }}</textarea>
                     @if ($errors->has('description'))
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('description') }}</strong>
@@ -115,6 +113,7 @@
                         type="checkbox"
                         name="private"
                         id="private"
+                        value="1"
                         {{ old('private') ? 'checked' : '' }}
                     >
 
@@ -130,6 +129,7 @@
                         type="checkbox"
                         name="parental_control"
                         id="parental_control"
+                        value="1"
                         {{ old('parental_control') ? 'checked' : '' }}
                     >
 

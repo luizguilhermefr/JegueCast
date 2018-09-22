@@ -15,13 +15,13 @@ class CreateVideos extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->uuid('uuid')->primary();
-            $table->string('name');
+            $table->string('title');
             $table->string('description')->nullable();
             $table->string('file_location');
             $table->string('subtitles_location')->nullable();
             $table->boolean('parental_control')->default(false);
             $table->boolean('private')->default(false);
-            $table->year('year')->nullable();
+            $table->unsignedDecimal('year', 4, 0)->nullable();
             $table->uuid('user_uuid');
             $table->timestamps();
             $table->foreign('user_uuid')->references('uuid')->on('users');
