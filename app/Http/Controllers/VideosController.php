@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\VideoUpload\Uploader;
 use App\User;
 use App\Video;
 use Closure;
@@ -49,23 +50,24 @@ class VideosController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function store(Request $request)
     {
         $validData = $request->validate([
             'title' => 'string|required|max:255',
             'year' => 'integer|nullable|min:0|max:' . date('Y'),
-            'file' => 'file|required|mimes:mp4,avi',
+            'file' => 'file|required|mimes:mp4,avi,mkv',
             'subtitles' => 'file|nullable|mimes:txt,srt',
             'description' => 'string|nullable|max:255',
             'parental_control' => 'nullable|boolean',
             'private' => 'nullable|boolean',
         ]);
 
-        $fileLocation = str_random(20);
+        $videoFile = $request->file('file');
 
         $videoData = array_merge($validData, [
-            'file_location' => $fileLocation,
+            'file_location' => Uploader::upload($videoFile),
         ]);
 
         $this->user->videos()->create($videoData);

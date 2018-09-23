@@ -56,7 +56,7 @@
                         name="file"
                         id="file"
                         value="{{ old('file') }}"
-                        accept=".mp4,.avi"
+                        accept=".mp4,.avi,.mkv"
                         required
                     >
                     @if ($errors->has('file'))
@@ -95,7 +95,6 @@
                         id="description"
                         rows="3"
                         placeholder="{{ __('Description') }}"
-                        required
                     >{{ old('description') }}</textarea>
                     @if ($errors->has('description'))
                         <span class="invalid-feedback" role="alert">
