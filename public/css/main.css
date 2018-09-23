@@ -56,3 +56,32 @@ html, body {
 a.navbar-brand {
     color: #aa2e25 !important;
 }
+
+.gallery {
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.gallery img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.gallery ul {
+    list-style: none;
+}
+
+.gallery a {
+    color: #212121;
+}
+
+.video-title {
+    font-weight: bolder;
+    text-overflow: ellipsis;
+}
+
+.video-author {
+
+}
