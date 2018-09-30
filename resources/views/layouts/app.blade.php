@@ -10,8 +10,8 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ url ('js/lib/jquery.min.js') }}"></script>
-    <script src="{{ url ('js/lib/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/lib/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -19,7 +19,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ url('css/lib/bootstrap.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/lib/material-icons.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/lib/bootstrap.min.css') }}" rel="stylesheet"/>
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -78,7 +79,7 @@
         </div>
     </nav>
 
-    <main class="col-md-12 content">
+    <main class="col-12 content">
         @yield('content')
     </main>
     <script>
