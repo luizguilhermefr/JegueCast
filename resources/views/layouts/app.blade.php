@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name') }}</title>
+@yield('head')
 
     <!-- Scripts -->
     <script src="{{ asset('js/lib/jquery.min.js') }}"></script>

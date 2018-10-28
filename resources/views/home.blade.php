@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('head')
+    <title>
+        {{ config('app.name') }}
+    </title>
+@endsection
+
 @section('content')
     @if(session()->get('success_upload'))
         <div class="alert alert-success" role="alert">
