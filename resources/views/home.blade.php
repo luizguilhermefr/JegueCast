@@ -8,30 +8,28 @@
     @endif
 
     @if(count($videos))
-        <section title="{{ __('Top picks') }}">
-            <div class="gallery">
-                @for($i = 0; $i < 4; $i++)
-                    <div class="col-md-12 col-lg-3">
+        <div class="gallery">
+            @foreach($videos as $video)
+                <div class="col-sm-12 col-md-3">
+                    <a href="videos/{{$video->uuid}}">
                         <img
                             class="img-fluid"
-                            src="https://images.unsplash.com/photo-1448814100339-234df1d4005d?crop=entropy&fit=crop&fm=jpg&h=400&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=600"
+                            src="{{ $video->thumbnail() }}"
                             alt=""
                         />
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    Daytona Beach
-                                </a></li>
-                            <li>
-                            <span>
-                                United States
-                            </span>
-                            </li>
-                        </ul>
-                    </div>
-                @endfor
-            </div>
-        </section>
+                    </a>
+                    <span class="video-title">
+                        <a href="videos/{{$video->uuid}}">
+                            {{ $video->title }}
+                        </a>
+                    </span>
+                    <br/>
+                    <span class="video-author">
+                        {{ $video->user->name }}
+                    </span>
+                </div>
+            @endforeach
+        </div>
     @else
         <div class="col-12">
             <img class="img-fluid" src="{{ asset('img/logo.png') }}"/>

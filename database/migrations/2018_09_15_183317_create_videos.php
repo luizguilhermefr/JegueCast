@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateVideos extends Migration
 {
@@ -19,6 +19,7 @@ class CreateVideos extends Migration
             $table->string('description')->nullable();
             $table->string('file_location');
             $table->string('subtitles_location')->nullable();
+            $table->string('thumbnail_locattion')->nullable();
             $table->boolean('parental_control')->default(false);
             $table->boolean('private')->default(false);
             $table->unsignedDecimal('year', 4, 0)->nullable();

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Video;
 
 class HomeController extends Controller
 {
@@ -23,7 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $videos = collect();
+        $videos = Video::inRandomOrder()
+            ->limit(8)
+            ->get();
+
         return view('home', compact('videos'));
     }
 }

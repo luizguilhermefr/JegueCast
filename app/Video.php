@@ -18,6 +18,7 @@ class Video extends Model
         'description',
         'file_location',
         'subtitles_location',
+        'thumbnail_locattion',
         'parental_control',
         'private',
         'year',
@@ -60,8 +61,16 @@ class Video extends Model
     {
         parent::boot();
         self::creating(function ($model) {
-            $model->uuid = (string) Uuid::generate(4);
+            $model->uuid = (string)Uuid::generate(4);
         });
+    }
+
+    /**
+     * @return string
+     */
+    public function thumbnail()
+    {
+        return $this->thumbnail_location ?? asset('img/no-thumb.jpg');
     }
 
     /**

@@ -70,10 +70,6 @@ a.navbar-brand {
     width: 100%;
 }
 
-.gallery ul {
-    list-style: none;
-}
-
 .gallery a {
     color: #212121;
 }
@@ -84,5 +80,5 @@ a.navbar-brand {
 }
 
 .video-author {
-
+    font-size: 14px;
 }
