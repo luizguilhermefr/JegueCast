@@ -1,11 +1,7 @@
 <template>
-    <div>
-        <h1>Vue Router Demo App</h1>
-
-        <div class="container">
-            <router-view></router-view>
-        </div>
-    </div>
+    <v-app dark>
+        <router-view></router-view>
+    </v-app>
 </template>
 
 <script>

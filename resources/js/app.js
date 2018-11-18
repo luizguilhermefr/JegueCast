@@ -1,11 +1,16 @@
 import Vue from 'vue'
+import Vuetify from 'vuetify'
 import VueRouter from 'vue-router'
 import axios from 'axios'
+
+import 'vuetify/dist/vuetify.min.css'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 import App from './App'
 
 import router from './routes'
 
+Vue.use(Vuetify)
 Vue.use(VueRouter)
 
 Vue.prototype.$http = axios
@@ -24,6 +29,8 @@ if (token) {
 
 const app = new Vue({
     el: '#app',
-    components: { App },
+    components: {
+        App
+    },
     router
 })
